@@ -7,13 +7,14 @@ const routes: Routes = [
 //   {
 //     path:"design/",component:CursorToolComponent
 // }
-{ path: '', component: HeaderComponent },
-{ path: 'design', component: CursorToolComponent },
+  { path: '',   redirectTo: 'design', pathMatch: 'full' }, // redirect to
+  { path: 'design', children: [
+      {path:"cursor-tool",component:CursorToolComponent},
+      {path:"",redirectTo:"cursor-tool",pathMatch: 'full'},
+      {path:"**",redirectTo:"",pathMatch: 'full'},
+    ]
+  },
 ];
-
-// children:[
-//   {path:"cursor-tool",component:CursorToolComponent}
-// ]
 
 
 @NgModule({

@@ -1,13 +1,16 @@
 <header class="header">
     <div class="left">
-        <!-- <a class="tool active" [routerLink]="['design']">
-            <i class='bx bx-navigation bx-flip-horizontal'></i>
-        </a> -->
-        <!-- <a class="tool" [routerLink]="['/design']">f</a> -->
+
+        <a *ngFor="let item of HeaderTools['left']" class="tool" [routerLink]="item.route" routerLinkActive="active">
+            <i class='{{item.logo}}'></i>
+        </a>
     </div>
     <div class="centre">
-        <router-outlet></router-outlet>
+      <router-outlet></router-outlet>
     </div>
-    <div class="right"></div>
+    <div class="right">
+      <a *ngFor="let item of HeaderTools['right']" class="tool" [routerLink]="item.route" routerLinkActive="active">
+        <i class='{{item.logo}}'></i>
+      </a>
+    </div>
 </header>
-<a [routerLink]="['/d']">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto rerum dolores ut nemo voluptates illum ea consectetur ab incidunt eaque quibusdam maiores est, magnam, neque beatae quod laudantium tempore reiciendis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex quidem, perspiciatis necessitatibus minus nisi dignissimos assumenda magni architecto blanditiis et quae accusantium voluptas culpa totam. Quia expedita nihil aperiam omnis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, harum repudiandae? Qui amet natus possimus ipsa, quis modi! Dolorum id veritatis nisi iste quia hic ea excepturi harum odit in!</a>

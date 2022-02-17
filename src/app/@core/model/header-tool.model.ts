@@ -1,9 +1,14 @@
+interface headerToolEx{
+  name:string;
+  logo:string;
+  route:string[];
+  hotkey?:string[];
+  comment?:string;
+  active?:boolean;
+}
+
 export interface headerTool{
-    [name:string]:{
-        toggle?:string;
-        logo:string;
-        hotkey?:string[];
-        comment?:string;
-    }
+    left?:headerToolEx[];
+    right?:headerToolEx[];
 }
 

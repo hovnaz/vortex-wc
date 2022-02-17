@@ -9,6 +9,7 @@ import {
 } from './components/index';
 
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {RouterModule} from "@angular/router";
 
 const COMPONENTS= [
   HeaderComponent,
@@ -21,7 +22,8 @@ const COMPONENTS= [
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ],
     exports: [...COMPONENTS],
   declarations: [...COMPONENTS],
