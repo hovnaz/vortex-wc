@@ -1,6 +1,5 @@
+import {ComponentModel} from "./component.model";
+
 export interface BodyModel{
-    name:string;
-    styles?:{
-      [size:string]:string;
-    }
+    [name:string]:ComponentModel[];
 }

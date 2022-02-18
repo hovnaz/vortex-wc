@@ -9,7 +9,7 @@ import {BodyModel} from "./@core/model/body.model";
 })
 export class AppComponent {
   title = 'lunx';
-  body:BodyModel[] = this.pagesService.GetPages
+  body = this.pagesService.GetPages
   constructor(private pagesService:PagesService) {}
 
 }

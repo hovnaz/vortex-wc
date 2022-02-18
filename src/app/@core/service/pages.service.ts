@@ -5,7 +5,7 @@ import {BodyModel} from "../model/body.model";
   providedIn: 'root'
 })
 export class PagesService {
-  private pages:BodyModel[] = [
+  private pages = [
     {
       name:"Home",
     }
