@@ -6,7 +6,6 @@ interface headerToolEx{
   comment?:string;
   active?:boolean;
 }
-
 export interface headerTool{
     left?:headerToolEx[];
     right?:headerToolEx[];
