@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import {PagesService} from "./@core/service/pages.service";
-import {BodyModel} from "./@core/model/body.model";
+
 
 @Component({
   selector: 'app-root',
@@ -9,7 +8,6 @@ import {BodyModel} from "./@core/model/body.model";
 })
 export class AppComponent {
   title = 'lunx';
-  body = this.pagesService.GetPages
-  constructor(private pagesService:PagesService) {}
+  constructor() {}
 
 }
