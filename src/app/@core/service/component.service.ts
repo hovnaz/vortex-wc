@@ -38,23 +38,22 @@ export class ComponentService {
         }
       }
       console.log(this.baseTag);
-      
+      // this.baseTag["link"].container.
     })
-    
 
 
 
 
 
-    // Tag.create("list", "ul>li*", {
-    //   interface: {
-    //     text: true,
-    //     in: true
-    //   },
-    //   utils: {
-    //     comment: "Defines an unordered list"
-    //   }
-    // })
+    Tag.create("list", "ul>li*", {
+      interface: {
+        text: true,
+        in: true
+      },
+      utils: {
+        comment: "Defines an unordered list"
+      }
+    })
     // Tag.create("select", "#(name)select>option*", {
     //   interface: {
     //     text: ["dropdown text", "select text", "option text"],
