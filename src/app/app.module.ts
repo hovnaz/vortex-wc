@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CursorToolComponent } from './@core/tool/design/cursor-tool/cursor-tool.component';
 import { ThemeModule } from './@theme/theme.module';
+import { ComponentService } from './@core/service/component.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,8 +18,11 @@ import { ThemeModule } from './@theme/theme.module';
     ThemeModule,
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    ComponentService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
