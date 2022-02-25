@@ -216,46 +216,67 @@
 //   // remove(){}
 //   // edit(){}
 // }
+type StructureModel = {
+  [name:string]:{ // tag name
+    count:number | true;
+    important?:boolean;
+    // StructureModel -> tree
+    // string -> container
+    child?:StructureModel | string;
+  }
+}
+type bodyModel = {
+  readonly tag: string;
+  readonly name: string;
+  container?: bodyModel[]
+  content?: {
+    text?: string;
+    attr?: { [name: string]: string; }
+  }
+}
+
+
+type TagRootLimb = {
+  type: "but" | "only";
+  list: {
+    [name: string]: number | { count: number; parent?: boolean }
+  }
+}
+
+type TagRootContent = {
+
+  attr?: {
+    [name: string]: string | {
+      list:string[];
+      value:string;
+      important?:true;
+    };
+  };
+  text?: string | string[];
+
+}
+
+type constructorTagRoot = {
+  content?: TagRootContent;
+  limb?:TagRootLimb;
+  structure?:StructureModel;
+  container?:boolean;
+}
+
+
+
 
 class TagRoot {
-  private tag: string; // tag name
-  private name: string // declared name unique
+  private readonly tag: string; // tag name
+  private readonly name: string // declared name unique
   // content text or attributes default
-  private content?: {
-    attr?: {
-      [name: string]: string | {
-        list:string[];
-        value:string;
-        important?:true;
-      };
-    };
-    text?: string | string[];
-  }
-  // declared container and initialize container settings
-  private container?: {
-    [name: string]: {
-      count?: number;
-      active: boolean;
-      type: "but" | "only";
-      list: (string | {
-        count: number;
-        parent: boolean;
-      })[]
-    }
-  }[]
+  private content?: TagRootContent;
   private structure?: {
-    in: {
-      limb: boolean | string;
-      in?: string
-    }[]
-    limb?: {
-      type: "but" | "only";
-      list: {
-        [name: string]: number | { count: number; parent?: boolean }
-      }
-    }
+    container?:boolean;
+    limb?: TagRootLimb;
+    // tree html or container
+    structure:StructureModel;
   }
-
   private get randomText():string{
     function rand(min:number,max:number = min+1):number{
       return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -266,42 +287,14 @@ class TagRoot {
 
     return text
   }
-  get ListContainer(): string[] {
-    return Object.keys(this.container ? this.container : {})
-  }
-  isActive(cont: string): boolean {
-    let active = false;
-    if (this.container && this.container.hasOwnProperty(cont) && this.container[cont as any]["active"]) active = true;
-    return active;
-  }
 
-
-
-
-  generateBody(name: string, content?: { text?: string, attr?: { [name: string]: string } }) {
-    type bodyModel = {
-      readonly tag: string;
-      readonly name: string;
-      container?: {
-        [name: string]: bodyModel | false;
-      }
-      content?: {
-        text?: string;
-        attr?: { [name: string]: string; }
-      }
-    }
+  generateBody(name: string, content?: { text?: string, attr?: { [name: string]: string } }):bodyModel {
     let body: bodyModel = {
       tag: this.name,
       name: name,
     }
-    if (this.container) {
-      body["container"] = {};
-      for (const key in this.container) {
-        if (this.container[key]["active"]) {
-          body["container"][key] = false
-        }
-      }
-    }
+
+    if (this.structure?.container) body["container"] = []
     if (this.content) {
       body["content"] = {}
       if (this.content["attr"]) {
@@ -320,9 +313,9 @@ class TagRoot {
         body["content"]["text"] = content ? content.text ? content.text : TEXT : TEXT;
       }
     }
+    return body;
   }
-
-  constructor(name:string,tag:string) {
+  constructor(name:string,tag:string,data?:constructorTagRoot) {
     this.name = name;
     this.tag = tag;
   }
@@ -333,7 +326,9 @@ class Tag {
   readonly prefix:string = "tag-"
   private data:{[name:string]:TagRoot;} = {};
 
-  add(){
+  add(name:string,tag:string,data?:constructorTagRoot){
+    if (!this.data.hasOwnProperty(name))
+    // data[name]
     // this.data
   }
 }
