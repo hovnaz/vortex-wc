@@ -216,119 +216,111 @@
 //   // remove(){}
 //   // edit(){}
 // }
+
+// Done 
 type StructureModel = {
-  [name:string]:{ // tag name
-    count:number | true;
-    important?:boolean;
-    // StructureModel -> tree
-    // string -> container
-    child?:StructureModel | string;
+  [name:string]: { // tag name
+    child?:string; 
+    count:number;
   }
 }
+// Done
 type bodyModel = {
   readonly tag: string;
-  readonly name: string;
-  container?: bodyModel[]
+  container?: string[]
   content?: {
     text?: string;
     attr?: { [name: string]: string; }
   }
+  metadata:[string,number];
 }
-
-
+// Done 
 type TagRootLimb = {
   type: "but" | "only";
   list: {
     [name: string]: number | { count: number; parent?: boolean }
   }
 }
-
+// Done
 type TagRootContent = {
-
   attr?: {
     [name: string]: string | {
-      list:string[];
-      value:string;
-      important?:true;
+      list: string[];
+      important?: true;
     };
   };
-  text?: string | string[];
+  text?: string[];
 
 }
-
 type constructorTagRoot = {
   content?: TagRootContent;
-  limb?:TagRootLimb;
-  structure?:StructureModel;
-  container?:boolean;
+  limb?: TagRootLimb | true;
+  structure?: StructureModel;
 }
-
-
-
 
 class TagRoot {
   private readonly tag: string; // tag name
-  private readonly name: string // declared name unique
+  
   // content text or attributes default
   private content?: TagRootContent;
   private structure?: {
-    container?:boolean;
-    limb?: TagRootLimb;
+    limb?: TagRootLimb | true;
     // tree html or container
-    structure:StructureModel;
+    structure?: StructureModel;
   }
-  private get randomText():string{
-    function rand(min:number,max:number = min+1):number{
-      return Math.floor(Math.random() * (max - min + 1)) + min;
+  constructor(tag:string,data?:constructorTagRoot){
+    this.tag = tag;
+    if(data){
+      this.content = data.content;
+      this.structure!.structure = data.structure;
+      this.structure!.limb = data.limb;
     }
-    let text = this.content?.text;
-    if (text == undefined) return "";
-    if (Array.isArray(text)) text = text[rand(0,text.length)];
-
-    return text
   }
-
-  generateBody(name: string, content?: { text?: string, attr?: { [name: string]: string } }):bodyModel {
-    let body: bodyModel = {
-      tag: this.name,
-      name: name,
-    }
-
-    if (this.structure?.container) body["container"] = []
+  generateTag():bodyModel{
+    // content:this.content,
+    let content
+    let attr;
+    let text:string;
     if (this.content) {
-      body["content"] = {}
-      if (this.content["attr"]) {
-        body["content"]["attr"] = {}
-        // add all important attr
-        for (const key in this.content["attr"]) {
-          const item = this.content["attr"][key];
-          if (!(typeof item == "string") && item.important){
-            body["content"]["attr"][key] = item.value;
+      if(this.content.text) {
+        text = this.content.text[Math.floor(Math.random()*this.content.text.length)];
+      }
+      if (this.content.attr) {
+        for (const name in this.content.attr) {
+          let x = this.content.attr[name];
+          // let y = x.important
+          if (typeof x != "string") {
+            console.log(x.important);
+            
           }
+          // console.log(this.content.attr[name as string]);
+          
+          if (this.content.attr[name]) {
+            
+          }
+
         }
       }
-
-      if (this.content.text) {
-        const TEXT = this.randomText
-        body["content"]["text"] = content ? content.text ? content.text : TEXT : TEXT;
-      }
     }
-    return body;
-  }
-  constructor(name:string,tag:string,data?:constructorTagRoot) {
-    this.name = name;
-    this.tag = tag;
+    return {
+      tag:this.tag,
+      container:this.structure?.limb ? []:undefined,
+      content:content,
+      metadata:["",-1],
+    }
   }
 }
 
 
-class Tag {
-  readonly prefix:string = "tag-"
-  private data:{[name:string]:TagRoot;} = {};
 
-  add(name:string,tag:string,data?:constructorTagRoot){
-    if (!this.data.hasOwnProperty(name))
-    // data[name]
-    // this.data
+class Tag {
+  readonly prefix: string = "tag-"
+  private body: {[name:string]:bodyModel} = {}
+
+  add(name: string, tag: string, data?: constructorTagRoot) {
+    if (!this.body.hasOwnProperty(name)){
+
+    }
+
   }
 }
