@@ -1,0 +1,12 @@
+header{z-index: 3000}
+.sidebar{z-index: 2000}
+.content{z-index: 1000}
+header,.sidebar,.content{position: relative}
+
+.container{
+    transition: padding 300ms;
+    padding-left: 20px;
+    &.open-sidebar{
+        padding-left: 240px;
+    }
+}

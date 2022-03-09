@@ -1,0 +1,9 @@
+<header><app-header></app-header></header>
+<div class="container" [ngClass]="{'open-sidebar':isOpenSidebar}">
+  <aside class="sidebar">
+    <app-sidebar (Sidebar)="sidebar($event)"></app-sidebar>
+  </aside>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

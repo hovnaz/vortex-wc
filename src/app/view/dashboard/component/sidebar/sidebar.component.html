@@ -1,0 +1,32 @@
+<div class="container" [ngClass]="{'open':isOpen}">
+  <div class="toggle-container">
+    <button class="toggle" (click)="toggle()"><i class='bx bx-chevron-{{isOpen?"left":"right"}}'></i></button>
+  </div>
+  <div class="sidebar"> 
+    <div class="content">
+      <header>
+        <img src="assets/dashboard/project.svg" alt="project">
+        <h2>Project</h2>
+        <h1>Project name</h1>
+        <span style="clear: both"></span>
+      </header>
+
+      <div class="content">
+
+        <a class="link-btn" routerLink="roadmap" routerLinkActive="active">
+          <span class="icon"><i class='bx bxs-bar-chart-alt-2 bx-rotate-90'></i></span>
+          <span class="link-text">RoadMap</span>
+        </a>
+
+        <a class="link-btn" routerLink="kanban" routerLinkActive="active">
+          <span class="icon"><i class='bx bxs-bar-chart-alt-2 bx-rotate-180' ></i></span>
+          <span class="link-text">Kanban</span>
+        </a>
+        <a class="link-btn" routerLink="palette" routerLinkActive="active">
+          <span class="icon"><i class='bx bx-palette' ></i></span>
+          <span class="link-text">Palette</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
