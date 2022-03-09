@@ -1,7 +1,0 @@
-<div class="sidebar" [ngClass]="{'hide':toggle, 'show':togglePipe}" (mouseleave)="togglePipe=false">
-    <div class="container-toggle">
-        <button class="toggle" (click)="toggle=!toggle"><i class='bx bx-chevron-{{toggle? "right":"left"}}'></i></button>
-    </div>
-</div>
-<!-- (mouseleave)="toggle=true" -->
-<div class="pipe" [ngClass]="{'hide': !toggle} " (mouseenter)="togglePipe=true"></div>
