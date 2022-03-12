@@ -8,9 +8,9 @@ import { RoadmapComponent } from './pages/roadmap/roadmap.component';
 const routes: Routes = [
   { path: '', component: DashboardComponent ,children:[
     {path:"", redirectTo:"roadmap", pathMatch:"full"},
-    {path:"roadmap", component:RoadmapComponent},
-    {path:"kanban", component:KanbanComponent},
-    {path:"palette", component:PaletteComponent},
+    {path:"roadmap", component:RoadmapComponent,data:{title:"Road map"}},
+    {path:"kanban", component:KanbanComponent,data:{title:"Kanban"}},
+    {path:"palette", component:PaletteComponent,data:{title:"Palette"}},
   ]}
 ];
 

@@ -1,9 +1,13 @@
-<header><app-header></app-header></header>
+<header class="header"><app-header></app-header></header>
 <div class="container" [ngClass]="{'open-sidebar':isOpenSidebar}">
   <aside class="sidebar">
     <app-sidebar (Sidebar)="sidebar($event)"></app-sidebar>
   </aside>
   <div class="content">
+    <header>
+      <h1>{{title}}</h1>
+      <h2><i class='bx bx-cube bx-tada' ></i> project</h2>
+    </header>
     <router-outlet></router-outlet>
   </div>
 </div>

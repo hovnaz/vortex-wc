@@ -1,6 +1,7 @@
-header{z-index: 3000}
-.sidebar{z-index: 2000}
-.content{z-index: 1000}
+.header{z-index: 9000;}
+.sidebar{z-index: 5000;}
+.content{z-index: 2000;}
+
 header,.sidebar,.content{position: relative}
 
 .container{
@@ -9,4 +10,28 @@ header,.sidebar,.content{position: relative}
     &.open-sidebar{
         padding-left: 240px;
     }
+}
+.content{
+    padding: 16px 8px 4px 16px;
+    header{
+        h2{
+            color: #505050;
+            font-size: 14px;
+            font-weight: 500;
+            margin-left: 20px;
+            display: flex;
+            i{
+                font-size: 18px;
+                margin-right: 5px;
+                color: #0f0f0f;
+            }
+        }
+        margin-bottom: 20px;
+    }
+}
+h1{
+    color: #2c2c2c;
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 5px;
 }
