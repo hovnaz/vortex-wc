@@ -1,0 +1,65 @@
+.epic-container{
+    .icon{
+        width: 17px;
+        height: 17px;   
+        border-radius: 3px;
+        color: #fff;
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 13px;
+    }
+}
+
+.child{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-weight: 400;
+    color: #172B4D;
+    font-size: 14px;
+    padding: 8px 16px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: 300ms;
+    &:hover{
+        background-color: #eee;
+        color: #0c1729;
+    }
+    .icon{
+        background-color: red;
+    }
+    &.widget{
+        .icon{background-color: #63ba3c;}
+    }
+    &.component{
+        .icon{background-color: #1e1e1e;}
+    }
+    &.epic{
+        .icon{background-color: #904ee2;}
+    }
+}
+// background-color: #904ee2;
+// #63ba3c
+
+
+.dropdown-toggle{
+    font-size: 16px;
+    color: #373737;
+    border-radius: 5px;
+    line-height: 16px;
+    cursor: pointer;
+    margin-right: 5px;
+    transition: 300ms;
+    &:hover,&:active{
+        background-color: #3b8aff;
+        color: #fff;
+    }
+}
+.child-name{
+    margin-left: 8px;
+}
+.child-container{
+    margin-left: 40px;
+}

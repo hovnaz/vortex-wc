@@ -10,6 +10,7 @@ import { RoadmapComponent } from './pages/roadmap/roadmap.component';
 import { ZeroComponent } from './pages/zero/zero.component';
 import { ProjectsComponent } from './pages/projects/projects.component';
 import { SidebarComponent } from './component/sidebar/sidebar.component';
+import { EpicComponent } from './pages/roadmap/epic/epic.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { SidebarComponent } from './component/sidebar/sidebar.component';
     ZeroComponent,
     ProjectsComponent,
     SidebarComponent,
+    EpicComponent,
   ],
   exports: [
     HeaderComponent

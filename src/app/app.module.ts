@@ -20,7 +20,7 @@ import { PageNotFoundComponent } from './view/page-not-found/page-not-found.comp
     AppRoutingModule,
     DashboardModule,
     ZeroModule,
-    DesktopModule
+    DesktopModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

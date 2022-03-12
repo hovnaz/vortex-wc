@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Epic } from 'src/app/core/model/epic.model';
+import { RoadmapService } from 'src/app/core/service/roadmap.service';
 
 @Component({
   selector: 'app-roadmap',
@@ -6,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./roadmap.component.scss']
 })
 export class RoadmapComponent implements OnInit {
-
-  constructor() { }
-
+  epic:string[];
+  constructor(private roadmap:RoadmapService) {
+    this.epic = roadmap.epic;
+  }
   ngOnInit(): void {
+    
   }
 
 }
