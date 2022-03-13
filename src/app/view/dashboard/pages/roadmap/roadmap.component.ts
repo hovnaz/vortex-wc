@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Epic } from 'src/app/core/model/epic.model';
+
 import { RoadmapService } from 'src/app/core/service/roadmap.service';
 
 @Component({

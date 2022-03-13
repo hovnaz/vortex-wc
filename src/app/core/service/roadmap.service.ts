@@ -1,28 +1,30 @@
 import { Injectable } from '@angular/core';
 import { Card } from '../class/card';
-import { Epic, EpicCard } from '../model/epic.model';
+import { Epic } from '../class/epic';
+import { WidgetEpic } from '../class/widget';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class RoadmapService {
-  private epicCard:EpicCard = {
-    name:new Card
+  private countEpic:number = 0;
+  private epicCard:{[epic:string]:Epic} = {
+    "1":new Epic("Dashboard","component")
   }
   
-  private epicData:Epic = {
-    "Dashboard":["name"]
+  private widgetCard:{[widget:string]:WidgetEpic} = {
+    "1": new WidgetEpic("button")
   }
 
-  get epic():string[]{return Object.keys(this.epicData)}
 
-  oneEpic(epic:string):Card[]{
-    let res:Card[] = [];
-      for (const child of this.epicData[epic]) {
-        res.push(this.epicCard[child])
-      }
-    return res;
+  get epic():string[]{return Object.keys(this.epicCard)}
+
+  getEpic(epic:string):Epic{return this.epicCard[epic]}
+  getWidget(id:string){return this.widgetCard[id]}
+  getComponent(id:string){return this.widgetCard[id]}
+
+  constructor() {
+    this.epicCard["1"].addChild("widget-1")
    }
-
-  constructor() { }
 }
