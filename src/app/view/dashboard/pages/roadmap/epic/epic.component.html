@@ -5,15 +5,13 @@
         <span class="icon"><i class='bx bxs-bolt'></i></span>
         <span class="child-name" title="{{epicName}}">{{epic?.name}}</span>
     </div>
-
-    {{child }}
     <div class="child-container" *ngIf="isOpen">
-        <!-- <div *ngFor="let child of epic?.child" class="child {{epic?.type}}" [ngSwitch]="epic?.type">
-            <span class="icon">
+      <div *ngFor="let item of child" class="child {{epic?.type}}" [ngSwitch]="epic?.type">
+          <span class="icon">
                 <i *ngSwitchCase="'component'" class="bx bxs-chip"></i>
                 <i *ngSwitchCase="'widget'" class='bx bxs-bookmark' ></i>
             </span>
-            <span class="child-name">{{child}}</span>
-        </div> -->
+        <span class="child-name">{{item.name}}</span>
+      </div>
     </div>
 </div>

@@ -13,7 +13,7 @@ export class RoadmapComponent implements OnInit {
     this.epic = roadmap.epic;
   }
   ngOnInit(): void {
-    
+
   }
 
 }

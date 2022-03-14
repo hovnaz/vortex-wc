@@ -1,21 +1,22 @@
 export class Card {
-    protected _name: string;
-    protected workflow: "backlog" | "process" | "done" = "backlog";
-    protected _description?: string;
-    protected _comments?: string[];
+    readonly id:string;
+    private _name: string;
+    private _workflow: "backlog" | "process" | "done" = "backlog";
+    private _description?: string;
+    private _comments?: string[];
     protected flag: boolean = false;
-    protected readonly _type:"widget" |"component";
-    constructor(name: string,type:"widget" |"component") {
+    readonly type:"widget" |"component";
+    constructor(name: string,type:"widget" |"component",id:string) {
         this._name = name;
-        this._type = type;
+        this.id = id;
+        this.type = type;
     }
     get comments(): string[] { return this._comments ? this._comments : [] }
     get description(): string { return this._description ? this._description : "" }
 
-
     get name():string{return this._name}
-    get type():string{return this._type}
-
     set description(des: string) { this._description = des }
     set comment(comment: string) { this._comments?.push(comment) }
+
+    get workflow(){return this._workflow}
 }

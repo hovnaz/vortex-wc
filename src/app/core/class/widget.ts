@@ -1,8 +1,9 @@
-export class WidgetEpic {
-    private _name:string;
-    constructor(name:string){
-        this._name = name;
+import {Card} from "./card";
+
+export class WidgetEpic extends Card{
+
+    constructor(name:string,id:string){
+      super(name,"widget",id)
+      console.log()
     }
-    
-    get name(){return this._name}
 }

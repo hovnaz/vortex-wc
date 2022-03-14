@@ -16,19 +16,15 @@ export class EpicComponent implements OnInit {
   child:WidgetEpic[] = [];
   isOpen:boolean = false;
   constructor(private roadMap:RoadmapService) { }
-  
+
   ngOnInit(): void {
     this.epic = this.roadMap.getEpic(this.epicName);
-    this.epic.child
-
     switch(this.epic.type){
       case "widget":
         this.child = this.epic.child.map(x => this.roadMap.getWidget(x));
-        console.log(this.child)
         break;
       case "component":
         this.child = this.epic.child.map(x => this.roadMap.getComponent(x));
-        console.log(this.child)
         break;
     }
   }
