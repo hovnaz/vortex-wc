@@ -1,9 +1,9 @@
-<div class="epic-container">
-
+<div class="epic-container" (click)="addChild()">
     <div class="child epic">
         <span class="dropdown-toggle" (click)="isOpen = !isOpen"><i class='bx bx-chevron-right' [ngClass]="{'bx-rotate-90':isOpen}"></i></span>
         <span class="icon"><i class='bx bxs-bolt'></i></span>
         <span class="child-name" title="{{epicName}}">{{epic?.name}}</span>
+        <span class="add"><i class='bx bx-plus'></i></span>
     </div>
     <div class="child-container" *ngIf="isOpen">
       <div *ngFor="let item of child" class="child {{epic?.type}}" [ngSwitch]="epic?.type">
@@ -14,4 +14,14 @@
         <span class="child-name">{{item.name}}</span>
       </div>
     </div>
+  <footer>
+    <form [formGroup]="formGroup" (ngSubmit)="createChildSubmit()" *ngIf="isActive">
+      <div class="epic-container">
+        <span class="icon"><i class='bx bxs-bolt'></i></span>
+        <span class="input-content">
+            <input class="input" #input type="text" formControlName="child" placeholder="What needs to be done?">
+          </span>
+      </div>
+    </form>
+  </footer>
 </div>

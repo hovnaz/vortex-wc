@@ -11,7 +11,7 @@ import { ZeroComponent } from './pages/zero/zero.component';
 import { ProjectsComponent } from './pages/projects/projects.component';
 import { SidebarComponent } from './component/sidebar/sidebar.component';
 import { EpicComponent } from './pages/roadmap/epic/epic.component';
-import { CreateEpicComponent } from './pages/roadmap/create-epic/create-epic.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -24,14 +24,15 @@ import { CreateEpicComponent } from './pages/roadmap/create-epic/create-epic.com
     ProjectsComponent,
     SidebarComponent,
     EpicComponent,
-    CreateEpicComponent,
+
   ],
   exports: [
     HeaderComponent
   ],
   imports: [
     CommonModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class DashboardModule { }

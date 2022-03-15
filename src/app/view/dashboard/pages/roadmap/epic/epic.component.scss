@@ -1,65 +1,100 @@
-.epic-container{
-    .icon{
-        width: 17px;
-        height: 17px;   
-        border-radius: 3px;
-        color: #fff;
-        
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 13px;
-    }
+.epic-container {
+  .icon {
+    width: 17px;
+    height: 17px;
+    border-radius: 3px;
+    color: #fff;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+  }
 }
 
-.child{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    font-weight: 400;
-    color: #172B4D;
-    font-size: 14px;
-    padding: 8px 16px;
-    border-radius: 3px;
-    cursor: pointer;
-    transition: 300ms;
-    &:hover{
-        background-color: #eee;
-        color: #0c1729;
+.child {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-weight: 400;
+  color: #172B4D;
+  font-size: 14px;
+  padding: 8px 16px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: 300ms;
+
+  &:hover {
+    background-color: #eee;
+    color: #0c1729;
+  }
+
+  .icon {
+    background-color: red;
+  }
+
+  &.widget {
+    .icon {
+      background-color: #63ba3c;
     }
-    .icon{
-        background-color: red;
+  }
+
+  &.component {
+    .icon {
+      background-color: #1e1e1e;
     }
-    &.widget{
-        .icon{background-color: #63ba3c;}
+  }
+
+  &.epic {
+    &:hover .add{
+      visibility: visible;
+      opacity: 1;
     }
-    &.component{
-        .icon{background-color: #1e1e1e;}
+    .icon {
+      background-color: #904ee2;
     }
-    &.epic{
-        .icon{background-color: #904ee2;}
+    .add{
+      width: 24px;
+      height: 24px;
+      background-color: #dbdbdb;
+      display: flex;
+      justify-content: center;
+      border-radius: 4px;
+      font-size: 18px;
+      color: #747474;
+      align-items: center;
+      position: absolute;
+      right: 20px;
+      visibility: hidden;
+      opacity: 0;
+      transition: 300ms;
     }
+  }
 }
+
 // background-color: #904ee2;
 // #63ba3c
 
 
-.dropdown-toggle{
-    font-size: 16px;
-    color: #373737;
-    border-radius: 5px;
-    line-height: 16px;
-    cursor: pointer;
-    margin-right: 5px;
-    transition: 300ms;
-    &:hover,&:active{
-        background-color: #3b8aff;
-        color: #fff;
-    }
+.dropdown-toggle {
+  font-size: 16px;
+  color: #373737;
+  border-radius: 5px;
+  line-height: 16px;
+  cursor: pointer;
+  margin-right: 5px;
+  transition: 300ms;
+
+  &:hover, &:active {
+    background-color: #3b8aff;
+    color: #fff;
+  }
 }
-.child-name{
-    margin-left: 8px;
+
+.child-name {
+  margin-left: 8px;
 }
-.child-container{
-    margin-left: 40px;
+
+.child-container {
+  margin-left: 40px;
 }
