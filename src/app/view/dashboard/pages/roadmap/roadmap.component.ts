@@ -17,6 +17,8 @@ export class RoadmapComponent implements OnInit {
     epic: new FormControl('', Validators.minLength(2)),
   });
   isActive: boolean = false;
+  type?: string;
+  child?: string;
 
   constructor(
     private roadmap:RoadmapService,
@@ -37,5 +39,12 @@ export class RoadmapComponent implements OnInit {
     this.roadmap.createEpic(String(name?.value),"widget")
     this.epic = this.roadmap.epic;
     this.formGroup.reset();
+  }
+
+  editType($event: string) {
+    this.type = $event;
+  }
+  editChild($event: string) {
+    this.child = $event;
   }
 }

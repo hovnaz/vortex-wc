@@ -12,8 +12,8 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 })
 
 export class EpicComponent implements OnInit {
-  @Output() epicId = new EventEmitter<string>();
-  @Output() childId = new EventEmitter<string>();
+  @Output("type") typeId = new EventEmitter<string>();
+  @Output("child") childId = new EventEmitter<string>();
 
   @Input() epicName:string = "";
   epic:Epic = new Epic("","widget","0");
@@ -58,5 +58,10 @@ export class EpicComponent implements OnInit {
         break
     }
     return res;
+  }
+
+  edit(type:string,id:string) {
+    this.typeId.emit(type);
+    this.childId.emit(id);
   }
 }

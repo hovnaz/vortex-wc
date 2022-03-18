@@ -7,8 +7,8 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class EditComponent implements OnInit {
   isOpen: boolean = true;
-  @Input() id?:string;
-
+  @Input() type?:string;
+  @Input() child?:string;
   constructor() { }
 
   ngOnInit(): void {
