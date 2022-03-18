@@ -1,8 +1,7 @@
-import { Injectable } from '@angular/core';
-import { Epic } from '../class/epic';
-import { WidgetEpic } from '../class/widget';
+import {Injectable} from '@angular/core';
+import {Epic} from '../class/epic';
+import {WidgetEpic} from '../class/widget';
 import {ComponentEpic} from "../class/component";
-import {AbstractControl} from "@angular/forms";
 
 
 @Injectable({
@@ -10,41 +9,52 @@ import {AbstractControl} from "@angular/forms";
 })
 export class RoadmapService {
   private count = {
-    epic:0,
-    widget:0,
-    component:0,
+    epic: 0,
+    widget: 0,
+    component: 0,
   }
-  private epicCard:{[epic:string]:Epic} = {
-    // "1":new Epic("pages","component","1")
-  }
-
-  private widgetCard:{[widget:string]:WidgetEpic} = {
-    // "1": new WidgetEpic("button","1")
-  }
-  private ComponentCard:{[widget:string]:ComponentEpic} = {
-    // "1": new ComponentEpic("header","1")
-  }
-
-  get epic():string[]{return Object.keys(this.epicCard)}
-
-  getEpic(epic:string):Epic{return this.epicCard[epic]}
-  getWidget(id:string){
-    return this.widgetCard[id]
-  }
-  getComponent(id:string){
-    return this.ComponentCard[id]
+  private Card: {
+    epic: { [epic: string]: Epic },
+    widget: { [widget: string]: WidgetEpic },
+    component: { [widget: string]: ComponentEpic }
+  } = {
+    epic: {},
+    widget: {},
+    component: {}
   }
 
+  get epic(): string[] {
+    return Object.keys(this.Card.epic)
+  }
 
-  createEpic(name: string, type: "widget" | "component"){
-    const id:string = String(this.count["epic"])
-    this.epicCard[id] = new Epic(name,type,id)
+  getEpic(epic: string): Epic {
+    return this.Card.epic[epic]
+  }
+
+  getWidget(id: string) {return this.Card.widget[id]}
+  getComponent(id: string) {return this.Card.component[id]}
+
+
+  create(id: string, type: "widget" | "component", name: string) {
+    const childId = String(this.count[type]++);
+    switch (type) {
+      case 'component':
+        this.Card[type][childId] = new ComponentEpic(name, childId)
+        break;
+      case 'widget':
+        this.Card[type][childId] = new WidgetEpic(name, childId)
+        break;
+    }
+    this.Card["epic"][id].addChild(childId);
+  }
+  createEpic(name: string, type: "widget" | "component") {
+    const id: string = String(this.count["epic"])
+    this.Card.epic[id] = new Epic(name, type, id)
     this.count["epic"]++;
   }
+  get(type:"epic" | "widget" | "component", id:string){return this.Card[type][id]}
 
 
 
-  constructor() {
-    // this.epicCard["1"].addChild("1")
-   }
+  constructor() {}
 }

@@ -12,6 +12,9 @@ import { ProjectsComponent } from './pages/projects/projects.component';
 import { SidebarComponent } from './component/sidebar/sidebar.component';
 import { EpicComponent } from './pages/roadmap/epic/epic.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import {CardPipe} from "../../core/pipe/card.pipe";
+import { EditComponent } from './pages/roadmap/edit/edit.component';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +27,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     ProjectsComponent,
     SidebarComponent,
     EpicComponent,
-
+    CardPipe,
+    EditComponent
   ],
   exports: [
     HeaderComponent

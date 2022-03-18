@@ -1,0 +1,16 @@
+<div class="container" *ngIf="isOpen">
+  <header>
+    <span>Ep-</span>
+    <span></span>
+    <button (click)="isOpen = false"><i class='bx bx-x' ></i></button>
+  </header>
+  <div class="content">
+    <input type="text" #name value="{{id}}">
+<!--    workflow-->
+<!--    <textarea></textarea> &lt;!&ndash;    description&ndash;&gt;-->
+<!--    done progress-->
+<!--    Details-->
+<!--    comments-->
+  </div>
+  <footer></footer>
+</div>

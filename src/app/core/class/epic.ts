@@ -6,8 +6,8 @@ export class Epic extends Card {
     constructor(name:string,type:"widget" |"component",id:string){
         super(name,type,id);
     }
-    addChild(child:string){
-        this.child.push(child);
+    addChild(id:string){
+      this._child.push(id);
     }
-    get child():string[]{return this._child}
+    get child():string[]{return this._child;}
 }

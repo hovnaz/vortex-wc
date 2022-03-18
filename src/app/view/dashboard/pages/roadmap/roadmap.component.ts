@@ -26,7 +26,6 @@ export class RoadmapComponent implements OnInit {
   }
   ngOnInit(): void {
   }
-
   openEpicAdd(){
     this.isActive = true;
     setTimeout(() => {
@@ -35,7 +34,7 @@ export class RoadmapComponent implements OnInit {
   }
   createEpicSubmit(){
     const name = this.formGroup.get("epic");
-    this.roadmap.createEpic(String(name?.value),"component")
+    this.roadmap.createEpic(String(name?.value),"widget")
     this.epic = this.roadmap.epic;
     this.formGroup.reset();
   }

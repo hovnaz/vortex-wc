@@ -3,13 +3,11 @@
 <div class="container">
   <div class="table">
     <app-epic *ngFor="let item of epic" [epicName]=item></app-epic>
-
     <footer>
       <button class="toggle-add-epic" (click)="openEpicAdd()" *ngIf="!isActive">
         <span class="icon"><i class='bx bx-plus'></i></span>
         <span class="text">Create Epic</span>
       </button>
-
       <form [formGroup]="formGroup" (ngSubmit)="createEpicSubmit()" *ngIf="isActive">
         <div class="epic-container">
           <span class="icon"><i class='bx bxs-bolt'></i></span>
@@ -20,5 +18,5 @@
       </form>
     </footer>
   </div>
-
 </div>
+<app-edit></app-edit>
