@@ -52,9 +52,9 @@ export class RoadmapService {
     this.Card.epic[id] = new Epic(name, type, id)
     this.count["epic"]++;
   }
-  get(type:"epic" | "widget" | "component", id:string){return this.Card[type][id]}
-
-
+  get(type:"epic" | "widget" | "component", id:string){
+    return this.Card[type][id];
+  }
 
   constructor() {}
 }

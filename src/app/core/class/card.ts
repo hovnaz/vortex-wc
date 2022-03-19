@@ -16,6 +16,7 @@ export class Card {
   get description(): string {return this._description ? this._description : ""}
   get name(): string {return this._name}
 
+  sname(val:string){this._name = val}
   set description(des: string) {this._description = des}
   set comment(comment: string) {this._comments?.push(comment)}
 
