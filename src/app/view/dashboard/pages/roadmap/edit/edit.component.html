@@ -1,19 +1,34 @@
 <div class="container" *ngIf="isOpen && card">
   <header>
-    <span>Ep-</span>
-    <span></span>
-    <button (click)="isOpen = false"><i class='bx bx-x' ></i></button>
+    <div>
+      <span>Ep-</span>
+    </div>
+    <div>
+      <button (click)="isOpen = false"><i class='bx bx-x'></i></button>
+    </div>
   </header>
   <div class="content">
-    
     <form [formGroup]="formName" (ngSubmit)="setName()">
-      <input type="text" formControlName="name" placeholder="Please enter this place" value="{{card.name}}">
+      <input type="text" formControlName="name" placeholder="Please enter this place" [value]="card.name">
     </form>
-<!--    workflow-->
-<!--    <textarea></textarea> &lt;!&ndash;    description&ndash;&gt;-->
-<!--    done progress-->
-<!--    Details-->
-<!--    comments-->
+
+    <form [formGroup]="formDesc" (ngSubmit)="setDesk()">
+      <textarea formControlName="description"></textarea>
+      <input type="text" type="submit">
+      <button>cancel</button>
+    </form>
+
+
+
+    <div class="workflow">
+      <button (click)="setWorkflow('backlog')">Selected for Development</button>
+      <button (click)="setWorkflow('process')">In Progress</button>
+      <button (click)="setWorkflow('done')">Done</button>
+    </div>
+    <!--    <textarea></textarea> &lt;!&ndash;    description&ndash;&gt;-->
+    <!--    done progress-->
+    <!--    Details-->
+    <!--    comments-->
   </div>
   <footer></footer>
 </div>

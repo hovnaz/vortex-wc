@@ -2,8 +2,6 @@
 .sidebar{z-index: 5000;}
 .content{z-index: 2000;}
 
-header,.sidebar,.content{position: relative}
-
 .container{
     transition: padding 300ms;
     padding-left: 20px;

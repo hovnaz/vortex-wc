@@ -1,0 +1,11 @@
+.container{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 440px;
+    height: calc(100vh - 100px);
+}
+header{
+    display: flex;
+    justify-content: space-between;
+}

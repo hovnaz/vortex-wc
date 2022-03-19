@@ -137,7 +137,7 @@
   vertical-align: top;
   white-space: nowrap;
   border-radius: 3px;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
   padding: 2px 6px;
   position: absolute;
@@ -145,6 +145,7 @@
   visibility: visible;
   opacity: 1;
   transition: 300ms;
+  text-transform: uppercase;
   &.backlog{
     background-color: #DFE1E6;
     color: #42526E;

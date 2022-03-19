@@ -17,9 +17,9 @@ export class Card {
   get name(): string {return this._name}
 
   sname(val:string){this._name = val}
-  set description(des: string) {this._description = des}
+  setDescription(des: string) {this._description = des}
   set comment(comment: string) {this._comments?.push(comment)}
 
   get workflow() {return this._workflow}
-  set workflow(flag:"backlog" | "process" | "done") {this._workflow = flag}
+  setWorkflow(flag:"backlog" | "process" | "done") {this._workflow = flag}
 }
