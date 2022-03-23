@@ -1,0 +1,9 @@
+<div [innerHTML]="code?code:'Add a description...'" (click)="isOpen = !isOpen" *ngIf="!isOpen" class="dis"></div>
+
+<div *ngIf="isOpen">
+  <angular-editor [(ngModel)]="code" [config]="config"></angular-editor>
+  <footer>
+    <button (click)="save()" class="btn save">save</button>
+    <button (click)="cancel()" class="btn cancel">Cancel</button>
+  </footer>
+</div>

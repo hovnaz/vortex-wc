@@ -39,10 +39,10 @@ export class RoadmapService {
     const childId = String(this.count[type]++);
     switch (type) {
       case 'component':
-        this.Card[type][childId] = new ComponentEpic(name, childId)
+        this.Card[type][childId] = new ComponentEpic(name,id, childId)
         break;
       case 'widget':
-        this.Card[type][childId] = new WidgetEpic(name, childId)
+        this.Card[type][childId] = new WidgetEpic(name,id, childId)
         break;
     }
     this.Card["epic"][id].addChild(childId);

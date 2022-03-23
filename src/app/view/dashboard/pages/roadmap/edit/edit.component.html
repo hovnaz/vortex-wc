@@ -1,34 +1,42 @@
 <div class="container" *ngIf="isOpen && card">
-  <header>
+  <header class="space">
     <div>
-      <span>Ep-</span>
+      <span>Ep-{{card.epic}}</span>
+      <ng-container [ngSwitch]="card.type">
+        <span *ngSwitchCase="'widget'">WT-{{card.id}}</span>
+        <span *ngSwitchCase="'component'">CT-{{card.id}}</span>
+      </ng-container>
     </div>
+
     <div>
-      <button (click)="isOpen = false"><i class='bx bx-x'></i></button>
+      <button class="close" (click)="isOpen = false"><i class='bx bx-x'></i></button>
     </div>
   </header>
   <div class="content">
-    <form [formGroup]="formName" (ngSubmit)="setName()">
-      <input type="text" formControlName="name" placeholder="Please enter this place" [value]="card.name">
+    <h2>Name</h2>
+    <form [formGroup]="formName" (ngSubmit)="setName()" class="space">
+      <input class="input-name" type="text" formControlName="name" placeholder="filling is mandatory" [value]="card.name" (focusout)="setName()">
     </form>
 
-    <form [formGroup]="formDesc" (ngSubmit)="setDesk()">
-      <textarea formControlName="description"></textarea>
-      <input type="text" type="submit">
-      <button>cancel</button>
-    </form>
+    <!-- workflow -->
+    <button class="status-btn space {{card.workflow}}" [matMenuTriggerFor]="menu">
+      {{card.workflow}}
+      <i class='bx bxs-chevron-down'></i>
+    </button>
+    <mat-menu #menu="matMenu">
+      <div class="workflow-item" (click)="setWorkflow('backlog')" *ngIf="card.workflow != 'backlog'">
+        <span class="status backlog">Backlog</span>
+      </div>
+      <div class="workflow-item" (click)="setWorkflow('process')" *ngIf="card.workflow != 'process'">
+        <span class="status process">In Progress</span>
+      </div>
+      <div class="workflow-item" (click)="setWorkflow('done')" *ngIf="card.workflow != 'done'">
+        <span class="status done">Done</span>
+      </div>
+    </mat-menu>
 
-
-
-    <div class="workflow">
-      <button (click)="setWorkflow('backlog')">Selected for Development</button>
-      <button (click)="setWorkflow('process')">In Progress</button>
-      <button (click)="setWorkflow('done')">Done</button>
-    </div>
-    <!--    <textarea></textarea> &lt;!&ndash;    description&ndash;&gt;-->
-    <!--    done progress-->
-    <!--    Details-->
-    <!--    comments-->
+    <h2>Description</h2>
+    <app-description [code]="card.description" (callback)="setDescription($event)"></app-description>
   </div>
   <footer></footer>
 </div>

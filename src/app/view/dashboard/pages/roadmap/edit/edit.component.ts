@@ -16,7 +16,7 @@ export class EditComponent implements OnInit,OnChanges {
   isOpen: boolean = false;
   @Input() type:any;
   @Input() child:any;
-
+  @Input() open:boolean = true;
   formName = new FormGroup({
     name: new FormControl(""),
   });
@@ -27,7 +27,9 @@ export class EditComponent implements OnInit,OnChanges {
   card?:Epic | WidgetEpic |ComponentEpic;
   constructor(private roadmap:RoadmapService) { }
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['type'] || changes['child']) {
+      if (changes['open']) this.isOpen = true;
+
+      if (changes['type'] || changes['child']) {
       this.isOpen = true;
       try{
         this.card = this.roadmap.get(this.type,this.child);
@@ -45,12 +47,15 @@ export class EditComponent implements OnInit,OnChanges {
       this.card.sname(name.value);
     }
   }
-  
+
   setWorkflow(flag:"backlog" | "process" | "done"){
     this.card?.setWorkflow(flag)
   }
   setDesk(){
     const value = this.formDesc.get("description")?.value;
     this.card?.setDescription(value);
+  }
+  setDescription($event: string) {
+    this.card?.setDescription($event);
   }
 }

@@ -6,11 +6,12 @@ export class Card {
   private _comments?: string[];
   protected flag: boolean = false;
   readonly type: "widget" | "component";
-
-  constructor(name: string, type: "widget" | "component", id: string) {
+  private _epic:string;
+  constructor(name: string, type: "widget" | "component", id: string,epic:string=id) {
     this._name = name;
     this.id = id;
     this.type = type;
+    this._epic = epic;
   }
   get comments(): string[] {return this._comments ? this._comments : []}
   get description(): string {return this._description ? this._description : ""}
@@ -22,4 +23,5 @@ export class Card {
 
   get workflow() {return this._workflow}
   setWorkflow(flag:"backlog" | "process" | "done") {this._workflow = flag}
+  get epic(){return this._epic}
 }

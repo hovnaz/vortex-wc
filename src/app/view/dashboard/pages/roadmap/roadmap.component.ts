@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnInit, SimpleChanges, ViewChild} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 import { RoadmapService } from 'src/app/core/service/roadmap.service';
@@ -19,6 +19,7 @@ export class RoadmapComponent implements OnInit {
   isActive: boolean = false;
   type?: string;
   child?: string;
+  openEdit: boolean = true;
 
   constructor(
     private roadmap:RoadmapService,
@@ -40,11 +41,11 @@ export class RoadmapComponent implements OnInit {
     this.epic = this.roadmap.epic;
     this.formGroup.reset();
   }
-
   editType($event: string) {
     this.type = $event;
   }
   editChild($event: string) {
     this.child = $event;
+    this.openEdit = !this.openEdit;
   }
 }

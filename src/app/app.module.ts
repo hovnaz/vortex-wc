@@ -8,9 +8,9 @@ import {DashboardModule} from "./view/dashboard/dashboard.module";
 import {ZeroModule} from "./view/zero/zero.module";
 import {DesktopModule} from "./view/desktop/desktop.module";
 import { PageNotFoundComponent } from './view/page-not-found/page-not-found.component';
-
-
-
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {FormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -18,6 +18,9 @@ import { PageNotFoundComponent } from './view/page-not-found/page-not-found.comp
     PageNotFoundComponent,
   ],
   imports: [
+    BrowserAnimationsModule,
+    FormsModule,
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     DashboardModule,

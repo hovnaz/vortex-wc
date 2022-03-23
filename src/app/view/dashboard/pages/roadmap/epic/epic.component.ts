@@ -1,6 +1,5 @@
 import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import { Epic } from 'src/app/core/class/epic';
-import { WidgetEpic } from 'src/app/core/class/widget';
 
 import { RoadmapService } from 'src/app/core/service/roadmap.service';
 import {FormControl, FormGroup, Validators} from "@angular/forms";

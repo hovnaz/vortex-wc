@@ -2,7 +2,6 @@ import { Card } from "./card";
 
 export class Epic extends Card {
     private _child:string[] = [];
-
     constructor(name:string,type:"widget" |"component",id:string){
         super(name,type,id);
     }

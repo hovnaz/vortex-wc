@@ -11,9 +11,12 @@ import { ZeroComponent } from './pages/zero/zero.component';
 import { ProjectsComponent } from './pages/projects/projects.component';
 import { SidebarComponent } from './component/sidebar/sidebar.component';
 import { EpicComponent } from './pages/roadmap/epic/epic.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {CardPipe} from "../../core/pipe/card.pipe";
 import { EditComponent } from './pages/roadmap/edit/edit.component';
+import {DescriptionComponent} from "./pages/roadmap/edit/description/description.component";
+import {materialExampleModule} from "../../../material.module";
+import {AngularEditorModule} from "@kolkov/angular-editor";
 
 
 @NgModule({
@@ -28,7 +31,8 @@ import { EditComponent } from './pages/roadmap/edit/edit.component';
     SidebarComponent,
     EpicComponent,
     CardPipe,
-    EditComponent
+    EditComponent,
+    DescriptionComponent
   ],
   exports: [
     HeaderComponent
@@ -36,7 +40,10 @@ import { EditComponent } from './pages/roadmap/edit/edit.component';
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    materialExampleModule,
+    AngularEditorModule,
+    FormsModule
   ]
 })
 export class DashboardModule { }
