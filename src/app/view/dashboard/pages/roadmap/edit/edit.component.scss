@@ -208,3 +208,54 @@ h2{
     background-color: #f1efef;
   }
 }
+
+.content-icon{
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 5px;
+  transition: background-color 300ms;
+
+  &.active,&:hover{
+    background-color: #eee;
+  }
+  &:not(:last-child){margin-right: 16px}
+  .icon{
+    width: 17px;
+    height: 17px;
+    border-radius: 3px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+  }
+  .lab{
+    margin-left: 5px;
+    font-size: 12px;
+    color: #565656;
+    font-weight: 400;
+  }
+  &.epic{
+    .icon{
+      background-color: #904ee2;
+    }
+    &.active{background-color: #dcd9ed}
+  }
+  &.widget{
+    .icon{
+      background-color: #63ba3c;
+    }
+    &.active{background-color: #e4edd9}
+  }
+  &.component{
+    .icon{
+      background-color: #f3f3f3;
+    }
+  }
+}
+.breadcrumb{
+  display: flex;
+  row-gap: 10px;
+}

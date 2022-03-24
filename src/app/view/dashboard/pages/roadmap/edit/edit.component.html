@@ -1,13 +1,22 @@
 <div class="container" *ngIf="isOpen && card">
   <header class="space">
-    <div>
-      <span>Ep-{{card.epic}}</span>
-      <ng-container [ngSwitch]="card.type">
-        <span *ngSwitchCase="'widget'">WT-{{card.id}}</span>
-        <span *ngSwitchCase="'component'">CT-{{card.id}}</span>
-      </ng-container>
+<!--    breadcrumb-->
+    <div class="breadcrumb">
+      <span class="content-icon epic" [ngClass]="{'active':isEpic}">
+        <span class="icon"><i class='bx bxs-bolt'></i></span>
+        <span class="lab">Ep-{{card.epic}}</span>
+      </span>
+      <span class="content-icon active {{card.type}}" [ngSwitch]="card.type" *ngIf="!isEpic">
+        <span class="icon">
+          <i *ngSwitchCase="'component'" class="bx bxs-chip"></i>
+          <i *ngSwitchCase="'widget'" class='bx bxs-bookmark' ></i>
+        </span>
+        <span class="lab" *ngSwitchCase="'component'">CT-{{card.id}}</span>
+        <span class="lab" *ngSwitchCase="'widget'">WT-{{card.id}}</span>
+      </span>
     </div>
 
+  <!--  settings  -->
     <div>
       <button class="close" (click)="isOpen = false"><i class='bx bx-x'></i></button>
     </div>
@@ -17,7 +26,6 @@
     <form [formGroup]="formName" (ngSubmit)="setName()" class="space">
       <input class="input-name" type="text" formControlName="name" placeholder="filling is mandatory" [value]="card.name" (focusout)="setName()">
     </form>
-
     <!-- workflow -->
     <button class="status-btn space {{card.workflow}}" [matMenuTriggerFor]="menu">
       {{card.workflow}}

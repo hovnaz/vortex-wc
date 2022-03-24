@@ -16,7 +16,6 @@ import {CardPipe} from "../../core/pipe/card.pipe";
 import { EditComponent } from './pages/roadmap/edit/edit.component';
 import {DescriptionComponent} from "./pages/roadmap/edit/description/description.component";
 import {materialExampleModule} from "../../../material.module";
-import {AngularEditorModule} from "@kolkov/angular-editor";
 
 
 @NgModule({
@@ -42,7 +41,6 @@ import {AngularEditorModule} from "@kolkov/angular-editor";
     DashboardRoutingModule,
     ReactiveFormsModule,
     materialExampleModule,
-    AngularEditorModule,
     FormsModule
   ]
 })

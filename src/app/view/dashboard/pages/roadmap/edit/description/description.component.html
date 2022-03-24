@@ -1,9 +1,14 @@
-<div [innerHTML]="code?code:'Add a description...'" (click)="isOpen = !isOpen" *ngIf="!isOpen" class="dis"></div>
+<!--<div [innerHTML]="code?code:'Add a description...'" (click)="isOpen = !isOpen" *ngIf="!isOpen" class="dis"></div>-->
 
-<div *ngIf="isOpen">
-  <angular-editor [(ngModel)]="code" [config]="config"></angular-editor>
-  <footer>
-    <button (click)="save()" class="btn save">save</button>
-    <button (click)="cancel()" class="btn cancel">Cancel</button>
-  </footer>
-</div>
+<!--<div *ngIf="isOpen">-->
+<!--  <button (click)="iBold()" >bold</button>-->
+<!--  <div #editor class="editor" contenteditable="true">-->
+<!--    barev-->
+<!--  </div>-->
+<!--  <footer>-->
+<!--    <button (click)="save()" class="btn save">save</button>-->
+<!--    <button (click)="cancel()" class="btn cancel">Cancel</button>-->
+<!--  </footer>-->
+<!--</div>-->
+
+<div id="editor-js"></div>

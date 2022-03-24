@@ -23,7 +23,7 @@ export class EditComponent implements OnInit,OnChanges {
   formDesc = new FormGroup({
     description: new FormControl(""),
   });
-
+  isEpic:boolean = false;
   card?:Epic | WidgetEpic |ComponentEpic;
   constructor(private roadmap:RoadmapService) { }
   ngOnChanges(changes: SimpleChanges): void {
@@ -35,6 +35,10 @@ export class EditComponent implements OnInit,OnChanges {
         this.card = this.roadmap.get(this.type,this.child);
         this.formName.get("name")?.setValue(this.card.name);
         this.formDesc.get("description")?.setValue(this.card.description);
+
+        // is epic?
+        if ( this.card instanceof Epic) this.isEpic = true;
+        else this.isEpic = false;
       }
       catch(error){}
     }
