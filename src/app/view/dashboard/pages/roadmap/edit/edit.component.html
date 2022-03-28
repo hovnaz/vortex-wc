@@ -2,11 +2,11 @@
   <header class="space">
 <!--    breadcrumb-->
     <div class="breadcrumb">
-      <span class="content-icon epic" [ngClass]="{'active':isEpic}">
+      <span class="content-icon epic" [ngClass]="{'active':card.isEpic}">
         <span class="icon"><i class='bx bxs-bolt'></i></span>
         <span class="lab">Ep-{{card.epic}}</span>
       </span>
-      <span class="content-icon active {{card.type}}" [ngSwitch]="card.type" *ngIf="!isEpic">
+      <span class="content-icon active {{card.type}}" [ngSwitch]="card.type" *ngIf="!card.isEpic">
         <span class="icon">
           <i *ngSwitchCase="'component'" class="bx bxs-chip"></i>
           <i *ngSwitchCase="'widget'" class='bx bxs-bookmark' ></i>
@@ -32,19 +32,25 @@
       <i class='bx bxs-chevron-down'></i>
     </button>
     <mat-menu #menu="matMenu">
-      <div class="workflow-item" (click)="setWorkflow('backlog')" *ngIf="card.workflow != 'backlog'">
+      <div class="workflow-item" (click)="card.setWorkflow('backlog')" *ngIf="card.workflow != 'backlog'">
         <span class="status backlog">Backlog</span>
       </div>
-      <div class="workflow-item" (click)="setWorkflow('process')" *ngIf="card.workflow != 'process'">
+      <div class="workflow-item" (click)="card.setWorkflow('process')" *ngIf="card.workflow != 'process'">
         <span class="status process">In Progress</span>
       </div>
-      <div class="workflow-item" (click)="setWorkflow('done')" *ngIf="card.workflow != 'done'">
+      <div class="workflow-item" (click)="card.setWorkflow('done')" *ngIf="card.workflow != 'done'">
         <span class="status done">Done</span>
       </div>
     </mat-menu>
 
     <h2>Description</h2>
     <app-description [code]="card.description" (callback)="setDescription($event)"></app-description>
+
+    <app-uepic *ngIf="card.isEpic;else isNotEpic" [epic]="card"></app-uepic>
+    <ng-template #isNotEpic [ngSwitch]="card.type">
+      <app-uwidget *ngSwitchCase="'widget'"></app-uwidget>
+      <app-ucomp *ngSwitchCase="'component'"></app-ucomp>
+    </ng-template>
   </div>
   <footer></footer>
 </div>

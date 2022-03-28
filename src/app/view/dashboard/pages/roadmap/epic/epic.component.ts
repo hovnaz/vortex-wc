@@ -15,7 +15,7 @@ export class EpicComponent implements OnInit {
   @Output("child") childId = new EventEmitter<string>();
 
   @Input() epicName:string = "";
-  epic:Epic = new Epic("","widget","0");
+  epic:Epic = new Epic("","component","0");
   isOpen:boolean = false;
   isActive: boolean = false;
   @ViewChild('input') input?: ElementRef<HTMLInputElement>;

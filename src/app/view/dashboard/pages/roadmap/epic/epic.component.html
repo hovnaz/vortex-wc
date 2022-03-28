@@ -1,28 +1,32 @@
 <div class="epic-container">
-    <div class="child epic" (click)="edit('epic',epic.id)">
-        <span class="dropdown-toggle" (click)="isOpen = !isOpen"><i class='bx bx-chevron-right' [ngClass]="{'bx-rotate-90':isOpen}"></i></span>
-        <span class="icon"><i class='bx bxs-bolt'></i></span>
-        <span class="id">Ep-{{epic.id}}</span>
-        <span class="child-name" title="{{epicName}}">{{epic.name}}</span>
-        <span class="add" (click)="openChild()"><i class='bx bx-plus'></i></span>
-        <span class="status {{epic.workflow}}" *ngIf="epic.workflow == 'done' || epic.workflow == 'process'">{{epic.workflow | titlecase}}</span>
-    </div>
-    <div class="child-container" *ngIf="isOpen">
-      <div *ngFor="let item of get(epic.child)"  class="child {{epic.type}}" [ngSwitch]="epic.type" (click)="edit(item.type,item.id)">
+  <div class="child epic" (click)="edit('epic',epic.id)">
+    <span class="dropdown-toggle" (click)="isOpen = !isOpen"><i class='bx bx-chevron-right'
+                                                                [ngClass]="{'bx-rotate-90':isOpen}"></i></span>
+    <span class="icon"><i class='bx bxs-bolt'></i></span>
+    <span class="id">Ep-{{epic.id}}</span>
+    <span class="child-name" title="{{epicName}}">{{epic.name}}</span>
+    <span class="add" (click)="openChild()"><i class='bx bx-plus'></i></span>
+    <span class="status {{epic.workflow}}"
+          *ngIf="epic.workflow == 'done' || epic.workflow == 'process'">{{epic.workflow | titlecase}}</span>
+  </div>
+  <div class="child-container" *ngIf="isOpen">
+    <div *ngFor="let item of get(epic.child)" class="child {{epic.type}}" [ngSwitch]="epic.type"
+         (click)="edit(item.type,item.id)">
           <span class="icon">
                 <i *ngSwitchCase="'component'" class="bx bxs-chip"></i>
-                <i *ngSwitchCase="'widget'" class='bx bxs-bookmark' ></i>
-            </span>
-        <span class="id">{{prefix(epic.type)}}-{{item.id}}</span>
-        <span class="child-name">{{item.name}}</span>
-        <span class="status {{item.workflow}}">{{item.workflow | titlecase}}</span>
-      </div>
+                <i *ngSwitchCase="'widget'" class='bx bxs-bookmark'></i>
+          </span>
+      <span class="id">{{prefix(epic.type)}}-{{item.id}}</span>
+      <span class="child-name">{{item.name}}</span>
+      <span class="status {{item.workflow}}">{{item.workflow | titlecase}}</span>
     </div>
+  </div>
   <footer>
     <form [formGroup]="formGroup" (ngSubmit)="createChildSubmit()" *ngIf="isActive">
       <div class="epic-container">
         <span class="input-content">
-            <input class="input" #input type="text" formControlName="child" placeholder="What needs to be done?" (focusout)="isActive = !isActive;">
+            <input class="input" #input type="text" formControlName="child" placeholder="What needs to be done?"
+                   (focusout)="isActive = !isActive;">
           </span>
       </div>
     </form>

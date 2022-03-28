@@ -1,7 +1,6 @@
 import {Component, ElementRef, OnInit, SimpleChanges, ViewChild} from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
-
 import { RoadmapService } from 'src/app/core/service/roadmap.service';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-roadmap',

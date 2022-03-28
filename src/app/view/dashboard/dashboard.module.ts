@@ -17,6 +17,10 @@ import { EditComponent } from './pages/roadmap/edit/edit.component';
 import {DescriptionComponent} from "./pages/roadmap/edit/description/description.component";
 import {materialExampleModule} from "../../../material.module";
 
+import { UepicComponent } from './pages/roadmap/edit/util/uepic/uepic.component';
+import { UwidgetComponent } from './pages/roadmap/edit/util/uwidget/uwidget.component';
+import { UcompComponent } from './pages/roadmap/edit/util/ucomp/ucomp.component';
+import { IssueComponent } from './pages/roadmap/edit/util/uepic/issue/issue.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +35,11 @@ import {materialExampleModule} from "../../../material.module";
     EpicComponent,
     CardPipe,
     EditComponent,
-    DescriptionComponent
+    DescriptionComponent,
+    UepicComponent,
+    UwidgetComponent,
+    UcompComponent,
+    IssueComponent
   ],
   exports: [
     HeaderComponent
@@ -41,7 +49,9 @@ import {materialExampleModule} from "../../../material.module";
     DashboardRoutingModule,
     ReactiveFormsModule,
     materialExampleModule,
-    FormsModule
+    FormsModule,
+
+
   ]
 })
 export class DashboardModule { }
