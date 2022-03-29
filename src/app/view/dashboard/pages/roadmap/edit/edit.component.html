@@ -2,11 +2,11 @@
   <header class="space">
 <!--    breadcrumb-->
     <div class="breadcrumb">
-      <span class="content-icon epic" [ngClass]="{'active':card.isEpic}">
+      <span class="content-icon epic" [ngClass]="{'active':card.isEpic}" (click)="sendLink(['epic',card.epic])">
         <span class="icon"><i class='bx bxs-bolt'></i></span>
         <span class="lab">Ep-{{card.epic}}</span>
       </span>
-      <span class="content-icon active {{card.type}}" [ngSwitch]="card.type" *ngIf="!card.isEpic">
+      <span class="content-icon active {{card.type}}" [ngSwitch]="card.type" *ngIf="!card.isEpic" (click)="sendLink([card.type,card.id])">
         <span class="icon">
           <i *ngSwitchCase="'component'" class="bx bxs-chip"></i>
           <i *ngSwitchCase="'widget'" class='bx bxs-bookmark' ></i>
@@ -46,8 +46,9 @@
     <h2>Description</h2>
     <app-description [code]="card.description" (callback)="setDescription($event)"></app-description>
 
-    <app-uepic *ngIf="card.isEpic;else isNotEpic" [epic]="card"></app-uepic>
+    <app-uepic *ngIf="card.isEpic;else isNotEpic" [epic]="card" (link)="sendLink($event)"></app-uepic>
     <ng-template #isNotEpic [ngSwitch]="card.type">
+
       <app-uwidget *ngSwitchCase="'widget'"></app-uwidget>
       <app-ucomp *ngSwitchCase="'component'"></app-ucomp>
     </ng-template>

@@ -19,7 +19,7 @@ export class RoadmapComponent implements OnInit {
   type?: string;
   child?: string;
   openEdit: boolean = true;
-
+  link?:string[];
   constructor(
     private roadmap:RoadmapService,
   ) {
@@ -46,5 +46,9 @@ export class RoadmapComponent implements OnInit {
   editChild($event: string) {
     this.child = $event;
     this.openEdit = !this.openEdit;
+  }
+
+  sendLink($event: string[]) {
+    this.link = $event;
   }
 }

@@ -2,7 +2,7 @@
 
 <div class="container">
   <div class="table">
-    <app-epic (type)="editType($event)" (child)="editChild($event)" *ngFor="let item of epic" [epicName]=item></app-epic>
+    <app-epic (type)="editType($event)" (child)="editChild($event)" *ngFor="let item of epic" [epicName]=item [link]="link"></app-epic>
     <footer>
       <button class="toggle-add-epic" (click)="openEpicAdd()" *ngIf="!isActive">
         <span class="icon"><i class='bx bx-plus'></i></span>
@@ -20,6 +20,6 @@
   </div>
 </div>
 
-<app-edit [type]="type" [child]="child" [open]="openEdit"></app-edit>
+<app-edit [type]="type" [child]="child" [open]="openEdit" (link)="sendLink($event)"></app-edit>
 
 

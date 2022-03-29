@@ -1,4 +1,14 @@
-import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
+  ViewChild
+} from '@angular/core';
 import { Epic } from 'src/app/core/class/epic';
 
 import { RoadmapService } from 'src/app/core/service/roadmap.service';
@@ -10,11 +20,12 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
   styleUrls: ['./epic.component.scss']
 })
 
-export class EpicComponent implements OnInit {
+export class EpicComponent implements OnInit,OnChanges {
   @Output("type") typeId = new EventEmitter<string>();
   @Output("child") childId = new EventEmitter<string>();
 
   @Input() epicName:string = "";
+  @Input() link?:string[];
   epic:Epic = new Epic("","component","0");
   isOpen:boolean = false;
   isActive: boolean = false;
@@ -62,5 +73,14 @@ export class EpicComponent implements OnInit {
   edit(type:string,id:string) {
     this.typeId.emit(type);
     this.childId.emit(id);
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if(changes["link"] && changes["link"].currentValue){
+      const res = changes["link"].currentValue;
+      setTimeout(()=>{
+        this.edit(res[0],res[1]);
+      },0)
+    }
   }
 }

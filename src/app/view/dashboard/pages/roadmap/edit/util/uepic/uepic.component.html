@@ -1,3 +1,6 @@
-<div class="issue">
-  <app-issue *ngFor="let id of epic.child" [id]="id" [type]="epic.type"></app-issue>
-</div>
+<ng-template [ngIf]="epic.child.length != 0">
+  <app-progress [epic]="epic"></app-progress>
+  <div class="issue">
+    <app-issue *ngFor="let id of epic.child" [id]="id" [type]="epic.type" (link)="sendLink($event)" ></app-issue>
+  </div>
+</ng-template>

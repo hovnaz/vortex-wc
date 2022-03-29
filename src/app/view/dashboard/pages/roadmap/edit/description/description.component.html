@@ -1,6 +1,6 @@
-<div [innerHTML]="code?code:'Add a description...'" (click)="isOpen = !isOpen" *ngIf="!isOpen" class="dis" [ngClass]="code?'':'active'"></div>
+<div [innerHTML]="code.trim()?code:'Add a description...'" (click)="isOpen = !isOpen" *ngIf="!isOpen" class="dis space" [ngClass]="code?'':'active'"></div>
 <div *ngIf="isOpen">
-  <div #editor class="editor" [innerHTML]="code" contenteditable="true"></div>
+  <div #editor class="editor space" [innerHTML]="code" contenteditable="true"></div>
   <footer>
     <button (click)="save()" class="btn save">save</button>
     <button (click)="cancel()" class="btn cancel">Cancel</button>

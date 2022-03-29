@@ -1,4 +1,4 @@
-import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {RoadmapService} from "../../../../../../../../core/service/roadmap.service";
 import {FormControl, FormGroup} from "@angular/forms";
 
@@ -10,11 +10,13 @@ import {FormControl, FormGroup} from "@angular/forms";
 export class IssueComponent implements OnInit {
   @Input() id: any;
   @Input() type: "widget" | "component" = "widget";
+  @Output() link = new EventEmitter<string[]>();
   issue: any;
   isEditName: boolean = false;
   formName = new FormGroup({
     name: new FormControl(""),
   });
+
   nameTmp?:string;
   @ViewChild('name') nameInput?: ElementRef<HTMLInputElement>;
 
@@ -26,26 +28,31 @@ export class IssueComponent implements OnInit {
     this.nameTmp = this.issue.name;
   }
   reset() {
-    console.log("reset")
     this.isEditName = false;
     this.formName.get("name")?.setValue(this.nameTmp);
   }
   save() {
-    setTimeout(()=>{
-      this.isEditName = false;
-      const name = this.formName.get("name");
-      if (name?.valid) {
-        this.nameTmp = name.value;
-        this.issue.sname(name.value);
-      }
-    },0)
+    const name = this.formName.get("name");
+    if (name?.valid) {
+      this.nameTmp = name.value;
+      this.issue.sname(name.value);
+    }
+    this.isEditName = false;
   }
-
   editName() {
     this.nameTmp = this.issue.name;
     this.isEditName = true;
     setTimeout(() => {
       this.nameInput?.nativeElement.focus();
     }, 0);
+  }
+  intervalSave() {
+    this.isEditName = false;
+    setTimeout(()=>{
+      this.save();
+    },200)
+  }
+  sendLink(){
+    this.link.emit([this.issue.isEpic?'epic':this.issue.type,this.issue.id]);
   }
 }

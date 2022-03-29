@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 
 import {ComponentEpic} from 'src/app/core/class/component';
 import {Epic} from 'src/app/core/class/epic';
@@ -17,6 +17,7 @@ export class EditComponent implements OnInit, OnChanges {
   @Input() type: any;
   @Input() child: any;
   @Input() open: boolean = true;
+  @Output() link = new EventEmitter<string[]>()
   formName = new FormGroup({
     name: new FormControl(""),
   });
@@ -58,4 +59,8 @@ export class EditComponent implements OnInit, OnChanges {
   setDescription($event: string) {
     this.card?.setDescription($event);
   }
+  sendLink($event:string[]) {
+    this.link.emit($event);
+  }
 }
+

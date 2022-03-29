@@ -1,10 +1,10 @@
 <div class="container">
   <div class="left">
-    <span class="icon" [ngClass]="issue.type">
+    <span class="icon" [ngClass]="issue.type" (click)="sendLink()">
         <i *ngIf="issue.type == 'component'" class="bx bxs-chip"></i>
         <i *ngIf="issue.type == 'widget'" class='bx bxs-bookmark'></i>
     </span>
-    <span class="id">
+    <span class="id" (click)="sendLink()">
       <span *ngIf="issue.type == 'component'">CT-{{issue.id}}</span>
       <span *ngIf="issue.type == 'widget'">WT-{{issue.id}}</span>
     </span>
@@ -16,15 +16,13 @@
         <span class="edit" (click)="editName()"><i class='bx bxs-pencil'></i></span>
       </ng-template>
       <ng-template #EditName>
-
-
-        <form [formGroup]="formName" (ngSubmit)="save()" class="space" #EditName>
-          <input #name class="editName" type="text" formControlName="name" [value]="issue.name" (focusout)="save()">
+        <form [formGroup]="formName" (ngSubmit)="save()" class="form-name">
+          <input #name class="editName" type="text" formControlName="name" [value]="issue.name" (focusout)="intervalSave()">
+          <footer class="edit-name-tool">
+            <button (click)="save()"><i class='bx bx-check'></i></button>
+            <button (click)="reset()"><i class='bx bx-x'></i></button>
+          </footer>
         </form>
-        <footer class="edit-name-tool">
-          <button (click)="save()"><i class='bx bx-check'></i></button>
-          <button (click)="reset()"><i class='bx bx-x'></i></button>
-        </footer>
       </ng-template>
     </span>
   </div>
@@ -33,7 +31,7 @@
     <!-- workflow -->
     <button class="status-btn status space {{issue.workflow}}" [matMenuTriggerFor]="menu">{{issue.workflow}}</button>
     <mat-menu #menu="matMenu">
-      <div class="workflow-item" (click)="issue.setWorkflow('backlog')" *ngIf="issue.workflow != 'backlog'">
+      <div class="workflow-item" (click)="issue.setWorkflow('backlog');" *ngIf="issue.workflow != 'backlog'">
         <span class="status backlog">Backlog</span>
       </div>
       <div class="workflow-item" (click)="issue.setWorkflow('process')" *ngIf="issue.workflow != 'process'">
@@ -45,4 +43,5 @@
     </mat-menu>
   </span>
   </div>
+  <div class="back" (click)="sendLink()"></div>
 </div>

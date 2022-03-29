@@ -1,0 +1,8 @@
+<div class="progress-container">
+  <div class="progress">
+    <div [style.flex-grow]="done" class="done" [ngClass]="{'radius':doneRadius}" [hidden]="!done"><div></div></div>
+    <div [style.flex-grow]="process" class="process radius" [hidden]="!process"><div></div></div>
+    <div [style.flex-grow]="backlog" class="backlog" [hidden]="!backlog"><div></div></div>
+  </div>
+  <div class="info">{{percentDone}}% Done</div>
+</div>

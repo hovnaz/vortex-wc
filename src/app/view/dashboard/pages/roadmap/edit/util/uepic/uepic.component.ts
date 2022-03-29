@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Epic} from "../../../../../../../core/class/epic";
 import {RoadmapService} from "../../../../../../../core/service/roadmap.service";
 
@@ -9,9 +9,15 @@ import {RoadmapService} from "../../../../../../../core/service/roadmap.service"
 })
 export class UepicComponent implements OnInit {
   @Input() epic:Epic = new Epic("","widget","");
+  @Output() link = new EventEmitter<string[]>()
+
   constructor(private roadmap:RoadmapService) { }
 
   ngOnInit(): void {
+  }
+
+  sendLink($event:string[]) {
+    this.link.emit($event);
   }
 
 }
