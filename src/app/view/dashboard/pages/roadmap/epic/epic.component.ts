@@ -48,10 +48,9 @@ export class EpicComponent implements OnInit,OnChanges {
     this.isOpen = true;
     const name = String(this.input?.nativeElement.value);
     this.formGroup.reset();
-    this.roadMap.create(this.epic.id,this.epic.type,name);
-
+    const id = this.roadMap.create(this.epic.id,this.epic.type,name);
+    this.edit(this.epic.type,id);
   }
-
   get(child: string[]) {
 
     return child.map(id => this.roadMap.get(this.epic.type,id));

@@ -28,7 +28,6 @@ export class EditComponent implements OnInit, OnChanges {
 
   constructor(private roadmap: RoadmapService) {
   }
-
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['open']) this.isOpen = true;
     if (changes['type'] || changes['child']) {

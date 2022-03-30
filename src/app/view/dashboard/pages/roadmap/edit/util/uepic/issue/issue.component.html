@@ -31,13 +31,13 @@
     <!-- workflow -->
     <button class="status-btn status space {{issue.workflow}}" [matMenuTriggerFor]="menu">{{issue.workflow}}</button>
     <mat-menu #menu="matMenu">
-      <div class="workflow-item" (click)="issue.setWorkflow('backlog');" *ngIf="issue.workflow != 'backlog'">
+      <div class="workflow-item" (click)="change('backlog')" *ngIf="issue.workflow != 'backlog'">
         <span class="status backlog">Backlog</span>
       </div>
-      <div class="workflow-item" (click)="issue.setWorkflow('process')" *ngIf="issue.workflow != 'process'">
+      <div class="workflow-item" (click)="change('process')"  *ngIf="issue.workflow != 'process'">
         <span class="status process">In Progress</span>
       </div>
-      <div class="workflow-item" (click)="issue.setWorkflow('done')" *ngIf="issue.workflow != 'done'">
+      <div class="workflow-item" (click)="change('done')" *ngIf="issue.workflow != 'done'">
         <span class="status done">Done</span>
       </div>
     </mat-menu>

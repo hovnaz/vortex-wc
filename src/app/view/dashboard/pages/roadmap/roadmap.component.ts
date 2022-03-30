@@ -36,9 +36,10 @@ export class RoadmapComponent implements OnInit {
   }
   createEpicSubmit(){
     const name = this.formGroup.get("epic");
-    this.roadmap.createEpic(String(name?.value),"widget")
+    const id = this.roadmap.createEpic(String(name?.value),"widget")
     this.epic = this.roadmap.epic;
     this.formGroup.reset();
+    this.sendLink(["epic",id]);
   }
   editType($event: string) {
     this.type = $event;
@@ -47,7 +48,6 @@ export class RoadmapComponent implements OnInit {
     this.child = $event;
     this.openEdit = !this.openEdit;
   }
-
   sendLink($event: string[]) {
     this.link = $event;
   }

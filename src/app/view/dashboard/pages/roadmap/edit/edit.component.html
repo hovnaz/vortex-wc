@@ -42,13 +42,10 @@
         <span class="status done">Done</span>
       </div>
     </mat-menu>
-
     <h2>Description</h2>
     <app-description [code]="card.description" (callback)="setDescription($event)"></app-description>
-
-    <app-uepic *ngIf="card.isEpic;else isNotEpic" [epic]="card" (link)="sendLink($event)"></app-uepic>
+    <app-uepic *ngIf="card.isEpic;else isNotEpic" (link)="sendLink($event)" [epic]="card" ></app-uepic>
     <ng-template #isNotEpic [ngSwitch]="card.type">
-
       <app-uwidget *ngSwitchCase="'widget'"></app-uwidget>
       <app-ucomp *ngSwitchCase="'component'"></app-ucomp>
     </ng-template>

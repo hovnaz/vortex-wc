@@ -35,7 +35,7 @@ export class RoadmapService {
   getComponent(id: string) {return this.Card.component[id]}
 
 
-  create(id: string, type: "widget" | "component", name: string) {
+  create(id: string, type: "widget" | "component", name: string):string {
     const childId = String(this.count[type]++);
     switch (type) {
       case 'component':
@@ -46,11 +46,13 @@ export class RoadmapService {
         break;
     }
     this.Card["epic"][id].addChild(childId);
+    return childId
   }
-  createEpic(name: string, type: "widget" | "component") {
-    const id: string = String(this.count["epic"])
-    this.Card.epic[id] = new Epic(name, type, id)
+  createEpic(name: string, type: "widget" | "component"):string {
+    const id: string = String(this.count["epic"]);
+    this.Card.epic[id] = new Epic(name, type, id);
     this.count["epic"]++;
+    return id
   }
   get(type:"epic" | "widget" | "component", id:string){
     return this.Card[type][id];

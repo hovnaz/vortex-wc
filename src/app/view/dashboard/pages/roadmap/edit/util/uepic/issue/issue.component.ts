@@ -11,6 +11,7 @@ export class IssueComponent implements OnInit {
   @Input() id: any;
   @Input() type: "widget" | "component" = "widget";
   @Output() link = new EventEmitter<string[]>();
+  @Output() changeEmitter  = new EventEmitter();
   issue: any;
   isEditName: boolean = false;
   formName = new FormGroup({
@@ -54,5 +55,9 @@ export class IssueComponent implements OnInit {
   }
   sendLink(){
     this.link.emit([this.issue.isEpic?'epic':this.issue.type,this.issue.id]);
+  }
+  change(workflow:string): void{
+    this.changeEmitter.emit(workflow);
+    this.issue.setWorkflow(workflow);
   }
 }

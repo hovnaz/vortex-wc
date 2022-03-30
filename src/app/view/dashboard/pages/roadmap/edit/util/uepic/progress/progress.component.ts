@@ -9,6 +9,7 @@ import {RoadmapService} from "../../../../../../../../core/service/roadmap.servi
 })
 export class ProgressComponent implements OnInit,OnChanges {
   @Input() epic?:Epic;
+  @Input() changeEmit?:any;
   done?:number = 0;
   process:number = 0;
   backlog:number = 1;
@@ -16,9 +17,7 @@ export class ProgressComponent implements OnInit,OnChanges {
   doneRadius:boolean = false;
   init:any;
   constructor(private roadmap:RoadmapService) { }
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
   ngOnChanges(changes: SimpleChanges): void {
     if (!this.epic)return;
     this.done = 0;
