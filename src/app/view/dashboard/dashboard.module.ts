@@ -22,6 +22,8 @@ import { UwidgetComponent } from './pages/roadmap/edit/util/uwidget/uwidget.comp
 import { UcompComponent } from './pages/roadmap/edit/util/ucomp/ucomp.component';
 import { IssueComponent } from './pages/roadmap/edit/util/uepic/issue/issue.component';
 import { ProgressComponent } from './pages/roadmap/edit/util/uepic/progress/progress.component';
+import { WidgetBuildComponent } from './pages/roadmap/edit/util/uwidget/widget-build/widget-build.component';
+import { WidgetBuildItemComponent } from './pages/roadmap/edit/util/uwidget/widget-build/widget-build-item/widget-build-item.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { ProgressComponent } from './pages/roadmap/edit/util/uepic/progress/prog
     UwidgetComponent,
     UcompComponent,
     IssueComponent,
-    ProgressComponent
+    ProgressComponent,
+    WidgetBuildComponent,
+    WidgetBuildItemComponent
   ],
   exports: [
     HeaderComponent
