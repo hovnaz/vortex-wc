@@ -8,6 +8,7 @@ import { TimelineComponent } from './pages/timeline/timeline.component';
 import { BoardsComponent } from './pages/boards/boards.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import {FilterComponent} from "../../shared/components/filter/filter.component";
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     BoardsComponent,
     HeaderComponent,
     SidebarComponent,
+    FilterComponent
   ],
   imports: [
     CommonModule,

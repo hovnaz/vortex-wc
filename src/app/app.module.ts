@@ -4,20 +4,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {RoadmapRoutingModule} from "./view/roadmap/roadmap-routing.module";
-import {DashboardModule} from "./view/dashboard/dashboard.module";
 
 import {IssueSettingsComponent} from "./shared/components/issue-settings/issue-settings.component";
+import {DashboardModule} from "./view/dashboard/dashboard.module";
 
 @NgModule({
   declarations: [
     AppComponent,
-    IssueSettingsComponent
+    IssueSettingsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RoadmapRoutingModule,
-    DashboardModule
+    DashboardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
