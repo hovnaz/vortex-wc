@@ -1,1 +1,27 @@
-<p>sidebar works!</p>
+<div class="only-margin-space" [ngClass]="{'open':isOpen}"></div>
+<div class="sidebar-container" [ngClass]="{'open':isOpen}">
+  <div class="toggle-container" [ngClass]="{'hidden':isOpen}">
+    <button class="toggle" (click)="isOpen = !isOpen">
+      <span><i class='bx bxs-chevron-{{isOpen?"left":"right"}}'></i></span>
+    </button>
+  </div>
+  <div class="container">
+    <div class="project">
+      <span class="img"></span>
+      <span class="info">
+        <h2>Web constructor</h2>
+        <span>Software project</span>
+      </span>
+    </div>
+  </div>
+  <div class="planning">
+    <h2>planning</h2>
+    <h3>Board WC</h3>
+
+    <div class="nav">
+      <a routerLink="overflow" routerLinkActive="active" class="item">overflow</a>
+      <a routerLink="timeline" routerLinkActive="active" class="item">timeline</a>
+      <a routerLink="boards" routerLinkActive="active" class="item">boards</a>
+    </div>
+  </div>
+</div>
