@@ -45,6 +45,7 @@ $width: (
     }
   }
 }
+
 .container{
   width: 100%;
   height: inherit;
@@ -53,8 +54,13 @@ $width: (
   opacity: 0;
   padding: 24px 8px 4px 8px;
 
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   white-space: nowrap;
+
+  // for mozila
+  scrollbar-color: #d5d5d5 #f2f2f2;
+  scrollbar-width: thin;
 }
 
 .toggle-container{
@@ -99,6 +105,7 @@ $width: (
   display: flex;
   align-items: center;
   padding: 8px 14px;
+  cursor: default;
   .img{
     width: 24px;
     height: 24px;
@@ -108,6 +115,7 @@ $width: (
     background-size: cover;
     display: inline-block;
     margin-right: 16px;
+    cursor: pointer;
   }
   .info{
     display: inline-block;
@@ -125,6 +133,91 @@ $width: (
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+    }
+  }
+}
+
+.planning{
+  .nav{
+   .item{
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 40px;
+    height: 44px;
+    margin: 0px;
+    align-items: center;
+    border: 0px none;
+    font-size: 14px;
+    outline: currentcolor none 0px;
+    text-decoration: none;
+    user-select: none;
+    color: currentcolor;
+    cursor: pointer;
+    padding: 8px 10px;
+    padding-left: 10px;
+    border-radius: 3px;
+    background-color: transparent;
+    position: relative;
+    color: #42526E;
+    font-weight: 500;
+    font-size: 14px;
+    transition: 300ms;
+    &::before{
+      content: "";
+      transition: 500ms;
+    }
+    &:not(:last-child){margin-bottom: 3px;}
+    &:hover{
+      background-color: #e6effc;
+    }
+    &.active{
+      background-color: #d9e8ff;
+      color: #0052cc;
+      &::before{
+        content: "";
+        position: absolute;
+        height: 16px;
+        width: 4px;
+        left: 0px;
+        top: 14px;
+        background: #0052CC;
+        border-radius: 0 2px 2px 0;
+        
+      }
+    }
+    .icon{
+      margin-right: 8px;
+      font-size: 20px;
+    }
+    span{
+      display: flex;
+      align-items: center;
+    }   
+   } 
+  }
+  .title{
+    margin-top: 22px;
+    margin-bottom: 6px;
+    padding: 8px 14px;
+    display: flex;
+    justify-content: flex-start;
+    cursor: default;
+    .icon{
+      width: 16px;
+      height: 16px;
+      border: 3px solid #ffa68a;
+      border-radius: 50%;
+      background-color: transparent;
+      display: inline-block;
+      margin-right: 15px;
+    }
+    h2{
+      font-size: 16px;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: #212329;
+      font-family: 'Nunito', sans-serif;
     }
   }
 }

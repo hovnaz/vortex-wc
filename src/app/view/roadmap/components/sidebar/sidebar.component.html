@@ -13,15 +13,26 @@
         <span>Software project</span>
       </span>
     </div>
-  </div>
-  <div class="planning">
-    <h2>planning</h2>
-    <h3>Board WC</h3>
-
-    <div class="nav">
-      <a routerLink="overflow" routerLinkActive="active" class="item">overflow</a>
-      <a routerLink="timeline" routerLinkActive="active" class="item">timeline</a>
-      <a routerLink="boards" routerLinkActive="active" class="item">boards</a>
+    <div class="planning">
+      <div class="title">
+        <div class="icon"></div>
+        <h2>planning</h2>
+      </div>
+      <div class="nav">
+        <a routerLink="overflow" routerLinkActive="active" class="item">
+          <span class="icon"><i class='bx bxl-stack-overflow' ></i></span>
+          <span>overflow</span>
+        </a>
+        <a routerLink="timeline" routerLinkActive="active" class="item">
+          <span class="icon"><i class='bx bx-timer' ></i></span>
+          <span>timeline</span>
+        </a>
+        <a routerLink="boards" routerLinkActive="active" class="item">
+          <span class="icon"><i class='bx bxs-dashboard'></i></span>
+          <span>boards</span>
+        </a>
+      </div>
+      <app-pages></app-pages>
     </div>
   </div>
 </div>

@@ -9,6 +9,7 @@ import { BoardsComponent } from './pages/boards/boards.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import {FilterComponent} from "../../shared/components/filter/filter.component";
+import { PagesComponent } from './components/sidebar/pages/pages.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import {FilterComponent} from "../../shared/components/filter/filter.component";
     BoardsComponent,
     HeaderComponent,
     SidebarComponent,
-    FilterComponent
+    FilterComponent,
+    PagesComponent
   ],
   imports: [
     CommonModule,
