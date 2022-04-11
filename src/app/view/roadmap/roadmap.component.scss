@@ -1,3 +1,9 @@
 .content{
-  display: inline-block;
+  width: 100%;
+  height: auto;
+  padding-top: 20px;
+}
+.container{
+  display: flex;
+  justify-content: flex-start;
 }

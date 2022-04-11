@@ -1,1 +1,6 @@
-<p>overflow works!</p>
+<div class="container">
+  <div class="epic">
+    <app-epic *ngFor="let epic of projectEpicData" [epic]="epic"></app-epic>
+  </div>
+  <div class="timeline"></div>
+</div>

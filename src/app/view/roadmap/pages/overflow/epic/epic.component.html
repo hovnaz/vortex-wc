@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="epic">
+    <div class="row">
+      <div class="toggle" (click)="isOpen = !isOpen"></div>
+      <div class="logo"></div>
+      <div class="name">{{epic.name}}</div>
+      <div class="workflow" *ngIf="epic.workflow == 'process'">Done</div>
+    </div>
+    <div class="row" *ngIf="child">
+      <div class="progress">
+        <div class="done"></div>
+        <div class="process"></div>
+        <div class="backlog"></div>
+      </div>
+    </div>
+  </div>
+  <div class="child">
+    <app-issue *ngFor="let id of child" [id]="id"></app-issue>
+  </div>
+</div>
