@@ -9,7 +9,8 @@ import { BoardsComponent } from './pages/boards/boards.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import {FilterComponent} from "../../shared/components/filter/filter.component";
-import { PagesComponent } from './components/sidebar/pages/pages.component';
+import { EpicComponent } from './pages/overflow/epic/epic.component';
+import { IssueComponent } from './pages/overflow/epic/issue/issue.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { PagesComponent } from './components/sidebar/pages/pages.component';
     HeaderComponent,
     SidebarComponent,
     FilterComponent,
-    PagesComponent
+    EpicComponent,
+    IssueComponent,
   ],
   imports: [
     CommonModule,
